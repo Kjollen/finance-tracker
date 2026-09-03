@@ -253,7 +253,7 @@ export default function DashboardPage() {
           ></div>
         </div>
         <p className="text-sm text-gray-400">
-          {budget(Number(percent || 0).toFixed(0)}% от бюджета
+          {budget} ({(percent || 0).toFixed(0)}% от бюджета)
         </p>
 
         {/* Предупреждения по категориям */}
