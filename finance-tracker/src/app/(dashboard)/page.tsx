@@ -272,7 +272,7 @@ export default function DashboardPage() {
                   {warning.icon} {warning.categoryName}
                 </span>
                 <span className="text-yellow-400 font-semibold">
-                  {warning.(percent || 0).toFixed(0)}% ({formatCurrency(warning.spent)} / {formatCurrency(warning.limit)})
+                  {(warning.percent || 0).toFixed(0)}% ({formatCurrency(warning.spent)} / {formatCurrency(warning.limit)})
                 </span>
               </div>
             ))}
