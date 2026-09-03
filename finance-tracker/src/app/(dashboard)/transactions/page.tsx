@@ -145,7 +145,7 @@ export default function TransactionsPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          {Object.entries(groupedByDate).map(([date, items]) => (
+          {Object.entries(groupedByDate).map(([date, items]: [string, any[]]) => (
             <div key={date}>
               <h3 className="text-sm text-gray-400 font-medium mb-2 capitalize">{date}</h3>
               <div className="space-y-2">

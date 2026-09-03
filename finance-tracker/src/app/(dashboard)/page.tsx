@@ -225,7 +225,7 @@ export default function DashboardPage() {
             ></div>
           </div>
           <p className="text-xs text-blue-200 mt-1">
-            Использовано {creditUsagePercent.toFixed(0)}% ({formatCurrency(totalCreditDebt)})
+            Использовано {creditUsage(percent || 0).toFixed(0)}% ({formatCurrency(totalCreditDebt)})
           </p>
         </div>
       )}
@@ -253,7 +253,7 @@ export default function DashboardPage() {
           ></div>
         </div>
         <p className="text-sm text-gray-400">
-          {budgetPercent.toFixed(0)}% от бюджета
+          {budget(percent || 0).toFixed(0)}% от бюджета
         </p>
 
         {/* Предупреждения по категориям */}
@@ -272,7 +272,7 @@ export default function DashboardPage() {
                   {warning.icon} {warning.categoryName}
                 </span>
                 <span className="text-yellow-400 font-semibold">
-                  {warning.percent.toFixed(0)}% ({formatCurrency(warning.spent)} / {formatCurrency(warning.limit)})
+                  {warning.(percent || 0).toFixed(0)}% ({formatCurrency(warning.spent)} / {formatCurrency(warning.limit)})
                 </span>
               </div>
             ))}
@@ -301,7 +301,7 @@ export default function DashboardPage() {
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(value: number) => formatCurrency(value)}
+                  formatter={(value: any) => formatCurrency(Number(value) || 0)}
                   contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px' }}
                 />
               </PieChart>
