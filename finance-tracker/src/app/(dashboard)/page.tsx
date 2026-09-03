@@ -225,7 +225,7 @@ export default function DashboardPage() {
             ></div>
           </div>
           <p className="text-xs text-blue-200 mt-1">
-            Использовано {creditUsage(percent || 0).toFixed(0)}% ({formatCurrency(totalCreditDebt)})
+            Использовано {(creditUsagePercent || 0).toFixed(0)}% ({formatCurrency(totalCreditDebt)})
           </p>
         </div>
       )}
@@ -253,7 +253,7 @@ export default function DashboardPage() {
           ></div>
         </div>
         <p className="text-sm text-gray-400">
-          {budget(percent || 0).toFixed(0)}% от бюджета
+          {budget(Number(percent || 0).toFixed(0)}% от бюджета
         </p>
 
         {/* Предупреждения по категориям */}
@@ -272,7 +272,7 @@ export default function DashboardPage() {
                   {warning.icon} {warning.categoryName}
                 </span>
                 <span className="text-yellow-400 font-semibold">
-                  {(warning.percent || 0).toFixed(0)}% ({formatCurrency(warning.spent)} / {formatCurrency(warning.limit)})
+                  {(Number(warning?.percent || 0).toFixed(0)}% ({formatCurrency(warning.spent)} / {formatCurrency(warning.limit)})
                 </span>
               </div>
             ))}
@@ -294,7 +294,7 @@ export default function DashboardPage() {
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  label={({ name, percent }) => `${name} ${((percent || 0) * 100).toFixed(0)}%`}
                 >
                   {categories.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

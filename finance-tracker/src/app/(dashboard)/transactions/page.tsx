@@ -73,7 +73,7 @@ export default function TransactionsPage() {
   );
 
   // Группировка по датам
-  const groupedByDate = filteredTransactions.reduce((acc, t) => {
+  const groupedByDate = filteredTransactions.reduce((acc: Record<string, any[]>, t: any) => {
     const date = new Date(t.date).toLocaleDateString('ru-RU', {
       day: 'numeric',
       month: 'long',
@@ -82,7 +82,7 @@ export default function TransactionsPage() {
     if (!acc[date]) acc[date] = [];
     acc[date].push(t);
     return acc;
-  }, {} as Record<string, any[]>);
+  }, {});
 
   if (loading) {
     return (
@@ -145,11 +145,11 @@ export default function TransactionsPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          {Object.entries(groupedByDate).map(([date, items]: [string, any[]]) => (
+          {Object.entries(groupedByDate).map(([date, items]: [string, any]) => (
             <div key={date}>
               <h3 className="text-sm text-gray-400 font-medium mb-2 capitalize">{date}</h3>
               <div className="space-y-2">
-                {items.map((t) => (
+                {items.map((t: any) => (
                   <div
                     key={t.id}
                     className="bg-gray-900 border border-gray-800 rounded-xl p-4 flex items-center justify-between"

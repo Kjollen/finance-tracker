@@ -154,7 +154,7 @@ export default function AnalyticsPage() {
                 <XAxis dataKey="month" stroke="#9ca3af" />
                 <YAxis stroke="#9ca3af" />
                 <Tooltip 
-                  formatter={(value: number) => formatCurrency(value)}
+                   formatter={(value: any) => formatCurrency(Number(value) || 0)}
                   contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px' }}
                 />
                 <Legend />
@@ -190,7 +190,7 @@ export default function AnalyticsPage() {
                   ))}
                 </Pie>
                 <Tooltip 
-                  formatter={(value: number) => formatCurrency(value)}
+                  formatter={(value: any) => formatCurrency(Number(value) || 0)}
                   contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px' }}
                 />
               </PieChart>
